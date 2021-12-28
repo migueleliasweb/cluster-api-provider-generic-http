@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 version=1.0.8
 arch=amd64
 
@@ -8,4 +10,7 @@ curl -L -O "https://github.com/kubernetes-sigs/kubebuilder/releases/download/v${
 
 # extract the archive
 tar -zxvf kubebuilder_${version}_linux_${arch}.tar.gz
-mv kubebuilder_${version}_linux_${arch} kubebuilder && mv kubebuilder /usr/local/bin
+mv kubebuilder_${version}_linux_${arch} kubebuilder
+
+chmod a+x kubebuilder/bin/*
+mv kubebuilder/bin/* /usr/local/bin

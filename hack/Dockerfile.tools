@@ -2,9 +2,9 @@ FROM debian:stretch-slim
 
 WORKDIR /opt/tools
 
-COPY hack/ .
-
 RUN apt update -y && \
     apt install -y curl
+
+COPY hack/ .
 
 RUN ./install-kube-builder.sh
