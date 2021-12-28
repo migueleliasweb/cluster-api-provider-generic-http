@@ -7,11 +7,13 @@ fi
 
 if [ -z "${CMD}" ]; then
     docker run -it --rm \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
         -v ${PWD}:/opt/cluster-api-provider-generic-http \
         --entrypoint "${ENTRYPOINT}" \
         cluster-api-provider-generic-http
 else
     docker run -it --rm \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
         -v ${PWD}:/opt/cluster-api-provider-generic-http \
         --entrypoint "${ENTRYPOINT}" \
         cluster-api-provider-generic-http "${CMD}"
