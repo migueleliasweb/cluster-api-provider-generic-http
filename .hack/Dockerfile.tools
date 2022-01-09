@@ -7,4 +7,5 @@ RUN apt update -y && \
 
 COPY . .
 
-RUN ./hack/install-kube-builder.sh
+RUN ./.hack/install-kube-builder.sh
+RUN ./.hack/install-clusterctl.sh
